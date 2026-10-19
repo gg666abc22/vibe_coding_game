@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑暗迷宮 (Dark Maze)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 右上角的驚嘆號三角形按鈕 (使用 SVG 繪製，不用額外載入圖片) -->
+    <div id="infoBtn" title="遊玩教學">
+        <svg viewBox="0 0 24 24" width="48" height="48">
+            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" fill="#FFD700"/>
+        </svg>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- 遊玩方式說明圖層 (預設隱藏) -->
+    <div id="instructionOverlay" class="hidden">
+        <div class="instruction-box">
+            <h2>📜 遊玩方式</h2>
+            <ul>
+                <li><span style="color: #FF0000;">■</span> <b>紅色方塊</b>：你自己 (使用 WASD 移動)。</li>
+                <li><span style="color: #00FF00;">■</span> <b>綠色方塊</b>：無意識徘徊的怪物，撞到會扣血！</li>
+                <li><span style="color: #FFD700;">■</span> <b>黃色方塊</b>：出口。場上共有 5 個，但<b>只有 1 個是真正的通關出口</b>，其餘 4 個是會觸發嘲諷影片的陷阱！</li>
+                <li><span style="color: #FF69B4;">■</span> <b>粉紅方塊</b>：補血道具，會在黑暗中偷偷生成。</li>
+                <li>⚠️ <b>注意</b>：視線外的牆壁會隨機改變，死胡同裡還藏著隱形的陷阱！</li>
+            </ul>
+            <button id="closeInstructionBtn">我知道了，放馬過來</button>
+        </div>
+    </div>
+
+    <!-- 嘲諷圖層 -->
+    <div id="tauntOverlay" class="hidden">
+        <video id="tauntVideo" src="Laughing Cat Meme [0FUuPgoWRYU].webm" loop playsinline></video>
+        <p id="tauntText">哈哈！走錯啦！這是死路！</p>
+        <button id="closeTauntBtn">摸摸鼻子回頭</button>
+        <!-- <audio id="tauntSound" src="嘲諷音效.mp3"></audio> -->
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
